@@ -78,7 +78,7 @@ def back_prop(X, Y):
         b1 -= db1*learning_rate
         w2 -= dw2*learning_rate
         b2 -= db2*learning_rate
-        if (epoch % 9000 == 0):
+        if (epoch % 1000 == 0):
             print(f"mse_loss in epoch:{epoch} is {np.mean((predicted-Y)**2)}")
     print(f"the values of w1={w1}, b1={b1}, w2={w2}, b2={b2}")
 
