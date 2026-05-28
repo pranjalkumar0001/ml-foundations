@@ -58,4 +58,4 @@ with torch.no_grad():
     prediction_test = head(final_hidden_state_test.squeeze(0))
     loss_test = loss_fn(prediction_test, Y_test)
 
-print(f"loss in the text data is {loss_test.item():.7f}")
+print(f"loss in the test data is {loss_test.item():.7f}")
