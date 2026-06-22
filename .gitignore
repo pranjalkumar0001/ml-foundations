@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 *.fif
 *.npy
+.DS_Store
