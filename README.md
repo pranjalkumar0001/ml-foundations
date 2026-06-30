@@ -8,6 +8,12 @@ This repo is organized chronologically as a "build-up" — starting from raw gra
 
 I'm a first-year engineering student going deep on BCI/neurorobotics, with the goal of eventually building real EEG decoders. Rather than jumping straight into `import eegnet` from a library, I wanted to understand every layer of the stack — backpropagation by hand, autograd internals, RNN/LSTM sequence modeling, and signal processing — before applying it to real EEG signals. This repo documents that progression.
 
+## Results
+
+The headline result is **83.33% accuracy on a subject the model never saw during training** (Leave-One-Subject-Out evaluation: trained on subjects 1–4, tested on subject 5), against a classical CSP+LDA baseline of 66.67%.
+
+Getting there involved a fair number of failures along the way — a vanishing-gradient bug from training on raw-volt-scale EEG data, a full model collapse, and a data-leakage trap that produced a misleadingly high 95% before it was caught and fixed. The full breakdown, including what went wrong at each step and why, is in **[RESULTS.md](./MNE-python_projects/RESULTS.md)**.
+
 ## Repository structure
 
 ```
