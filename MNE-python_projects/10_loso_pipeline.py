@@ -4,7 +4,6 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import TensorDataset, DataLoader
 import mne
-import warnings
 from eegnet_model import EEGNet
 
 torch.manual_seed(42)

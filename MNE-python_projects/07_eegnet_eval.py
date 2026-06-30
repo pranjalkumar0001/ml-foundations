@@ -3,12 +3,15 @@ import torch.nn as nn
 import torch.optim as optim
 from sklearn.model_selection import train_test_split
 from eegnet_model import EEGNet
-import eegnet_model
+import numpy as np
 
-# Load Tensors
-X = eegnet_model.X
-y = eegnet_model.y
+X_raw = np.load("X_binary.npy")
+y_raw = np.load("y_binary.npy") -2
 
+X = torch.tensor(X_raw, dtype=torch.float32)
+y = torch.tensor(y_raw, dtype= torch.long)
+
+X = X.unsqueeze(1) # X.size is (45,1,64,801)
 # 1. The Train/Test Split (80% Train, 20% Test)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
 

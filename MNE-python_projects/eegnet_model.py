@@ -1,14 +1,5 @@
 import torch
 import torch.nn as nn
-import numpy as np
-
-X_raw = np.load("X_binary.npy")
-y_raw = np.load("y_binary.npy") -2
-
-X = torch.tensor(X_raw, dtype=torch.float32)
-y = torch.tensor(y_raw, dtype= torch.long)
-
-X = X.unsqueeze(1) # X.size is (45,1,64,801)
 
 class EEGNet(nn.Module):
     def __init__(self, channels = 64, samples = 801, classes = 2):
@@ -67,8 +58,3 @@ class EEGNet(nn.Module):
         x = self.classifier(x)
         return x
     
-
-#model = EEGNet()
-#output = model(X)
-#print(f"Output Tensor Shape: {output.shape}")
-#print(output)

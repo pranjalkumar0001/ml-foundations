@@ -2,8 +2,15 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from eegnet_model import EEGNet
-from eegnet_model import X
-from eegnet_model import y
+import numpy as np
+
+X_raw = np.load("X_binary.npy")
+y_raw = np.load("y_binary.npy") -2
+
+X = torch.tensor(X_raw, dtype=torch.float32)
+y = torch.tensor(y_raw, dtype= torch.long)
+
+X = X.unsqueeze(1) # X.size is (45,1,64,801)
 
 model = EEGNet()
 loss_fn = nn.CrossEntropyLoss()
